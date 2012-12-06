@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -12,6 +11,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -24,10 +24,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.code.R;
+import com.code.constant.IntentConstant;
+
 public class MainActivity extends Activity implements OnItemClickListener
 {
     public static final String TAG = "";
-    public static final String QUERY_ACTION = Intent.ACTION_MAIN;
+//    public static final String QUERY_ACTION = Intent.ACTION_MAIN;
+    public static final String QUERY_ACTION = IntentConstant.ACTION;
     
     private ListView m_lisView;
     private ArrayList<SubDemoInfo> m_listSubDemoInfos;
@@ -56,7 +60,8 @@ public class MainActivity extends Activity implements OnItemClickListener
         // 定义匹配条件的Intent
         PackageManager pm = this.getPackageManager();
         Intent subIntent = new Intent(QUERY_ACTION, null);
-        subIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+//        subIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        subIntent.addCategory(IntentConstant.CATEGORY);
 
         // 执行查询
         List<ResolveInfo> resolveInfos = pm.queryIntentActivities(subIntent, PackageManager.MATCH_DEFAULT_ONLY/* 0 */);

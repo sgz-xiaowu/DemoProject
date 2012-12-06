@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.code.demoproject"
+    package="com.code"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -11,6 +11,13 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <!-- 在Activity这里说明一下
+            android:name="Activity0x"
+            android:name=".Activity0x"
+            2句code的不同：说明“.”表示manifest下面的package当前包.
+              所以当Activity在相同包下面时，一般直接用.+Activity名 表示name；
+              当Activity在不同包下时，就不能再饮用.了，需要拼出full pkgname。
+         -->
         <activity
             android:name="com.code.demoproject.MainActivity"
             android:label="@string/title_activity_main" >
@@ -20,6 +27,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.code.subdemo.Activity01"
+            android:label=".01">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.code.subdemo.Activity02"
+            android:label=".02">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.code.subdemo.Activity03"
+            android:label=".03">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.code.subdemo.Activity04"
+            android:label=".04">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        
     </application>
 
 </manifest>
