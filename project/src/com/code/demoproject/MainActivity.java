@@ -5,14 +5,18 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -38,9 +42,23 @@ public class MainActivity extends Activity implements OnItemClickListener
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        {
+//            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+//            .detectAll()
+//            .penaltyLog()
+//            .penaltyDialog() ////打印logcat，当然也可以定位到dropbox，通过文件保存相应的log
+//            .build());
+//            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll()
+//            .penaltyLog()
+//            .build());
+        }
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        
+        int nPid = android.os.Process.myPid();  
+        Log.d("", "nPid is : " + nPid);
+        
         // 取得listview
         m_lisView = (ListView) findViewById(R.id.demo_list);
         m_listSubDemoInfos = new ArrayList<SubDemoInfo>();

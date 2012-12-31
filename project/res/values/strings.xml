@@ -5,4 +5,7 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">DemoMainActivity</string>
     <string name="empty_description"></string>
+    
+    <string name="http_get">http_get请求</string>
+    <string name="http_post">http_post请求</string>
 </resources>
