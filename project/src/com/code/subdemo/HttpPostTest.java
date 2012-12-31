@@ -61,7 +61,9 @@ public class HttpPostTest extends Activity implements OnClickListener
 
     protected void postDataToServer()
     {
-        String uriServer = "http://www.baidu.com";
+//        String uriServer = "http://www.baidu.com";
+//        String uriServer = "http://192.168.5.110:8080/ServletDemo/servlet/SimpleServiceDo4GetAndPost";
+        String uriServer = "http://192.168.5.110:8080/ServletDemo/servlet/SimpleTestDoPost";
         /*创建HttpPost连接*/
         HttpPost httpRequest = new HttpPost(uriServer);
         /*Post运行传递变量必须用NameValuePair[]数组存储*/

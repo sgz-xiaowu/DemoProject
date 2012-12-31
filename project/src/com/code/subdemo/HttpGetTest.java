@@ -72,7 +72,9 @@ public class HttpGetTest extends Activity implements OnClickListener
     {
 //        String uriServer = "http://www.baidu.com";
         /*192.168.5.110 为本机PC ip地址*/
-        String uriServer = "http://192.168.5.110:8080/HelloWorld/";
+//        String uriServer = "http://192.168.5.110:8080/HelloWorld/";
+//        String uriServer = "http://192.168.5.110:8080/ServletDemo/servlet/SimpleServiceDo4GetAndPost";
+        String uriServer = "http://192.168.5.110:8080/ServletDemo/servlet/SimpleTestDoGet";
         /*在模拟器或真机访问时，不能使用localhost；只能在电脑上运行，通过浏览器调用localhost*/
 //        String uriServer = "http://localhost:8080/HelloWorld/index.jsp";
         /*创建HttpGet连接*/
