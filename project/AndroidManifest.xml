@@ -99,6 +99,16 @@
                 <category android:name="com.shendw.intent.category.xxx"/>
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.code.subdemo.Color_Drawable_Diff"
+            android:label=".Color_Drawable_Diff">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
         
     </application>
 
