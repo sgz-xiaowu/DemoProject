@@ -1,0 +1,26 @@
+git pull 时出现 error: Your local changes to the following files would be overwritten by merge的解决办法...
+
+% git pull
+...error: Your local changes to the following files would be overwritten by merge:
+    webfront/app/views/Projects/index.html
+    webfront/app/views/main.html
+Please, commit your changes or stash them before you can merge.
+Aborting
+
+In those cases, you want to stash 
+% git stash <!-- 先存储local原来的version head--> 
+Saved working directory and index state WIP on master: 11f6d51 merge changes
+HEAD is now at 11f6d51 merge changes
+
+Then you pull...
+%   git pull <!-- 更新remote update changes to local，此时对应的冲突文件是remote内容，打开文件，是不能看到local 原来的内容，此时该文件是没有冲突的--> 
+...
+5 files changed, 61 insertions(+), 69 deletions(-)
+
+And finally you stash pop 
+% git stash pop <!-- 必须要stash pop，拉出local保存的version head，此时冲突文件包含remote&local所有内容，打开conflicts files-手动修改为正确的方案--> 
+....
+Dropped refs/stash@{0} (865bf3eef6b7752cff098dbf3dd20b2ffebb02f7)
+
+Note：recommit & repush
+% git add % git commit %git push

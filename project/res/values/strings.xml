@@ -9,6 +9,14 @@
     <string name="http_get">http_get请求</string>
     <string name="http_post">http_post请求</string>
     
-    <color name="red">#ff0000</color>
-    <drawable name="red">#ff0000</drawable>
+    <!-- color&drawable diff -->
+    <color name="red_test">#ff0000</color>
+    <drawable name="red_test">#ff0000</drawable>
+
+    <!--  set background color  -->
+    <string name="colordisplay_set_layout">设置布局颜色</string>
+    <string name="colordisplay_set_text">设置文本颜色</string>
+    <string name="colordisplay_show">效果演示</string>
+    <string name="colordisplay_content">我是什么颜色?%s</string>
+
 </resources>
