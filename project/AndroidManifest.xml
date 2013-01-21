@@ -130,8 +130,28 @@
             </intent-filter>
         </activity>
         <activity 
+            android:name="com.code.subdemo.UnhandlingRuntimeChanges"
+            android:label=".UnhandlingRuntimeChanges">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="com.code.subdemo.HandlingRuntimeChanges"
+            android:label=".HandlingRuntimeChanges">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
+        <activity 
             android:name="com.mobile.example.chapter.ui.ColorDisplayActivtiy"
-            android:label="ColorDisplay">
+            android:label=".ColorDisplay">
             <intent-filter >
                 <action android:name="com.shendw.intent.action.xxx"/>
                 

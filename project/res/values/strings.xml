@@ -19,4 +19,8 @@
     <string name="colordisplay_show">效果演示</string>
     <string name="colordisplay_content">我是什么颜色?%s</string>
 
+    <!-- handling runtime changes -->
+    <string name="runtime_changes">我的测试结果是：%1s</string>
+    <string name="increase">加+1</string>
+    <string name="decrease">减-1</string>
 </resources>
