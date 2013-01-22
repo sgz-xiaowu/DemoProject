@@ -1,0 +1,5 @@
+# 该文件夹用来存放XML files。
+
+# XML files includes string, array, attr, style, theme, and more simple types.
+
+# More Simple：such as booleans, integers, dimensions, colors, and other arrays。

@@ -1,0 +1,4 @@
+# 该文件夹用来存放Bitmap files | XML files。
+
+# Bitmap files(.png,.9.png,.jpg,.gif)| XML files compiled into drawable subtypes.
+# Drawable subtypes:Bitmap files,Nine-Patches (re-sizable bitmaps),State lists,Shapes,Animation drawables,Other drawables

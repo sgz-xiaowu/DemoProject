@@ -1,0 +1,4 @@
+# 该文件夹用来存放XML files。
+
+# Various XML configuration files must be saved here, such as a searchable configuration.
+# Arbitrary XML files that can be read at runtime by calling Resources.getXML().

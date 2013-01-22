@@ -1,0 +1,6 @@
+# 该文件夹用来存放XML files。
+
+# XML files defining tween animations.（补间动画）
+
+# (Property animations can also be saved in "anim" dir.
+# 为了区分animations类型，‘Property animations’更乐意saved to res/animator/)
