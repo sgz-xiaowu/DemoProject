@@ -87,9 +87,9 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnInterpolator = (Button) findViewById(R.id.button_interpolator);
         m_circleView = (CircleView) findViewById(R.id.circleView1);
         
-        String triggerText = getString(R.string.anim_trigger, ANIMATION_NAMES[0]);
+        String triggerText = getString(R.string.anim_trigger, ""/*ANIMATION_NAMES[0]*/);
         m_btnTrigger.setText(triggerText);
-        String interpolatorText = getString(R.string.anim_interpolator, INTERPOLATOR_NAMES[0]);
+        String interpolatorText = getString(R.string.anim_interpolator, ""/*INTERPOLATOR_NAMES[0]*/);
         m_btnInterpolator.setText(interpolatorText);
         m_btnTrigger.setOnClickListener(this);
         m_btnTriggerActivity.setOnClickListener(this);
