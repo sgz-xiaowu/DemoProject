@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    syntax:
+    <?xml version="1.0" encoding="utf-8"?>
+    <InterpolatorName xmlns:android="http://schemas.android.com/apk/res/android"
+        android:attribute_name="value"/>
+     -->
+     
+     <anticipateOvershootInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+         android:tension="5.0"
+         android:extraTension="4.0"/>

@@ -24,13 +24,36 @@ import android.widget.TextView;
 public class AnimationResActivity extends Activity implements OnClickListener
 {
     public static final String[] ANIMATION_NAMES = {"alpha", "scale", "rotate", "translate", "shiver_anim"};
+    public static final String[] INTERPOLATOR_NAMES = {"AccelerateDecelerateInterpolator",
+                                                       "AccelerateInterpolator",
+                                                       "AnticipateInterpolator", 
+                                                       "AnticipateOvershootInterpolator",
+                                                       "BounceInterpolator",
+                                                       "CycleInterpolator",
+                                                       "DecelerateInterpolator",
+                                                       "LinearInterpolator",
+                                                       "OvershootInterpolator"};
     
+    // view animation
     public static final int INDEX_ALPHA = 0;
     public static final int INDEX_SCALE = 1;
     public static final int INDEX_ROTATE = 2;
     public static final int INDEX_TRANSLATE = 3;
     public static final int INDEX_SHIVER_ANIM = 4;
-    public static final int INDEX_MAX = ANIMATION_NAMES.length - 1;
+    public static final int INDEX_MAX_ANIMATION = ANIMATION_NAMES.length - 1;
+    
+    // interpolator     
+                    // Overshoot超越，超出  Anticipate提前，早期                                      //动画效果
+    public static final int INDEX_AccelerateDecelerateInterpolator = 10;    //先加速，后减速
+    public static final int INDEX_AccelerateInterpolator = 11;              //加速
+    public static final int INDEX_AnticipateInterpolator = 12;              // 动画开始，超出
+    public static final int INDEX_AnticipateOvershootInterpolator = 13;     // 动画开始&结束，超出
+    public static final int INDEX_BounceInterpolator = 14;                  //弹球
+    public static final int INDEX_CycleInterpolator = 15;                   //循环，并开始超出
+    public static final int INDEX_DecelerateInterpolator = 16;              //减速
+    public static final int INDEX_LinearInterpolator = 17;                  //线性，即匀速
+    public static final int INDEX_OvershootInterpolator = 18;               // 动画结束，超出
+    public static final int INDEX_MAX_INTERPOLATOR = INTERPOLATOR_NAMES.length - 1;
     
     private TextView m_text01;
     private TextView m_text02;
@@ -40,10 +63,12 @@ public class AnimationResActivity extends Activity implements OnClickListener
     private Button m_btnTrigger;
     private Button m_btnTriggerActivity;
     private Button m_btnDraw;
+    private Button m_btnInterpolator;
     
     private CircleView m_circleView;
     
-    private int m_nameIndex = 0;
+    private int m_nameAnimationIndex = 0;
+    private int m_nameInterpotatorIndex = 0;
     private boolean isSaved = true;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,13 +84,17 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnTrigger = (Button) findViewById(R.id.button_trigger);
         m_btnTriggerActivity = (Button) findViewById(R.id.button_activity_temp);
         m_btnDraw = (Button) findViewById(R.id.button_draw);
+        m_btnInterpolator = (Button) findViewById(R.id.button_interpolator);
         m_circleView = (CircleView) findViewById(R.id.circleView1);
         
-        String triggerText = getString(R.string.anim_trigger, ANIMATION_NAMES[m_nameIndex]);
+        String triggerText = getString(R.string.anim_trigger, ANIMATION_NAMES[0]);
         m_btnTrigger.setText(triggerText);
+        String interpolatorText = getString(R.string.anim_interpolator, INTERPOLATOR_NAMES[0]);
+        m_btnInterpolator.setText(interpolatorText);
         m_btnTrigger.setOnClickListener(this);
         m_btnTriggerActivity.setOnClickListener(this);
         m_btnDraw.setOnClickListener(this);
+        m_btnInterpolator.setOnClickListener(this);
         
         m_circleView.setBackgroundColor(Color.BLACK);
     }
@@ -80,20 +109,40 @@ public class AnimationResActivity extends Activity implements OnClickListener
         {
             // 动画效果切换
             Button trigger = (Button) v;
-            Animation animation = createAnimation(m_nameIndex);
-            int index = (m_nameIndex + 1) <= INDEX_MAX ? m_nameIndex + 1 : 0;
-            String triggerText = getString(R.string.anim_trigger, ANIMATION_NAMES[index]);
+            Animation animation = createAnimation(m_nameAnimationIndex);
+//            int index = (m_nameIndex + 1) <= INDEX_MAX_ANIMATION ? m_nameIndex + 1 : 0;
+            String triggerText = getString(R.string.anim_trigger, ANIMATION_NAMES[m_nameAnimationIndex]);
             trigger.setText(triggerText);
             
-            startAnimation2(m_nameIndex, animation);
+            startAnimation2(m_nameAnimationIndex, animation);
             
-            m_nameIndex ++;
-            if (m_nameIndex > INDEX_MAX)
+            m_nameAnimationIndex ++;
+            if (m_nameAnimationIndex > INDEX_MAX_ANIMATION)
             {
-                m_nameIndex = 0;
+                m_nameAnimationIndex = 0;
             }
         }
             break;
+            
+        case R.id.button_interpolator:
+        {
+            int oriIndex = m_nameInterpotatorIndex + 10;
+            // 动画效果切换
+            Button interpolator = (Button) v;
+            Animation animation = createAnimation(oriIndex);
+//            int nowIndex = (m_nameIndex + 1) <= INDEX_MAX_INTERPOLATOR ? m_nameIndex + 1 : 0;
+            String triggerText = getString(R.string.anim_interpolator, INTERPOLATOR_NAMES[m_nameInterpotatorIndex]);
+            interpolator.setText(triggerText);
+            
+            startAnimation2(oriIndex, animation);
+            
+            m_nameInterpotatorIndex ++;
+            if (m_nameInterpotatorIndex > INDEX_MAX_INTERPOLATOR)
+            {
+                m_nameInterpotatorIndex = 0;
+            }
+        }
+        break;
             
         case R.id.button_activity_temp:
             Intent intent = new Intent(AnimationResActivity.this, TempActivity.class);
@@ -171,6 +220,7 @@ public class AnimationResActivity extends Activity implements OnClickListener
         
         switch (index)
         {
+        // animation
         case INDEX_ALPHA:
             animation = AnimationUtils.loadAnimation(context, R.anim.alpha_in);
             break;
@@ -185,6 +235,35 @@ public class AnimationResActivity extends Activity implements OnClickListener
             break;
         case INDEX_SHIVER_ANIM:
             animation = AnimationUtils.loadAnimation(context, R.anim.shiver_anim);
+            break;
+        
+        // Inter_polator
+        case INDEX_AccelerateDecelerateInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_accelerate_decelerate);
+            break;
+        case INDEX_AccelerateInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_accelerate);
+            break;
+        case INDEX_AnticipateInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_anticipate);
+            break;
+        case INDEX_AnticipateOvershootInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_anticipate_overshoot_);
+            break;
+        case INDEX_BounceInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_bounce);
+            break;
+        case INDEX_CycleInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_cycle);
+            break;
+        case INDEX_DecelerateInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_decelerate);
+            break;
+        case INDEX_LinearInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_linear);
+            break;
+        case INDEX_OvershootInterpolator:
+            animation = AnimationUtils.loadAnimation(context, R.anim.translate_overshoot);
             break;
 
         default:
@@ -241,6 +320,18 @@ public class AnimationResActivity extends Activity implements OnClickListener
                 view = m_circleView;
                 break;
 
+            // Inter_polator
+            case INDEX_AccelerateDecelerateInterpolator:
+            case INDEX_AccelerateInterpolator:
+            case INDEX_AnticipateInterpolator:
+            case INDEX_AnticipateOvershootInterpolator:
+            case INDEX_BounceInterpolator:
+            case INDEX_CycleInterpolator:
+            case INDEX_DecelerateInterpolator:
+            case INDEX_LinearInterpolator:
+            case INDEX_OvershootInterpolator:
+                view = m_text04;
+                break;
             default:
                 view = null;
                 break;

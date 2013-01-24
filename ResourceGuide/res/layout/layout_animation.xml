@@ -80,4 +80,12 @@
         android:layout_alignLeft="@+id/button_activity_temp"
         android:text="@string/anim_draw" />
 
+    <Button
+        android:id="@+id/button_interpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/button_trigger"
+        android:layout_below="@id/circleView1"
+        android:text="@string/anim_interpolator" />
+
 </RelativeLayout>

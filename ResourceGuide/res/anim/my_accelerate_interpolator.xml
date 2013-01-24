@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    syntax:
+    <?xml version="1.0" encoding="utf-8"?>
+    <InterpolatorName xmlns:android="http://schemas.android.com/apk/res/android"
+        android:attribute_name="value"/>
+     -->
+     
+     <accelerateInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+         android:factor="3.0"/>

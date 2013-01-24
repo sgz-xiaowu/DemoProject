@@ -20,5 +20,6 @@
     <string name="anim_translate">translate动画效果</string>
     <string name="anim_trigger">切换效果：%s</string>
     <string name="anim_draw">Draw</string>
+    <string name="anim_interpolator">内插器：%s</string>
     
 </resources>
