@@ -2,7 +2,23 @@
 
     <string name="app_name">ResourceGuide</string>
     <string name="hello_world">Hello world!</string>
+    <string name="temp">This is temp activity for test!This is temp activity for test!This is temp activity for test!This is temp activity for test!This is temp activity for test!This is temp activity for test!</string>
     <string name="menu_settings">Settings</string>
+    <!-- Activity label -->
     <string name="title_activity_resouce_main">ResouceMainActivity</string>
-
+    <string name="title_activity_animation_res">AnimationResActivity</string>
+    <string name="title_activity_temp">TempActivity</string>
+    
+    <!-- intent trigger -->
+    <string name="trigger_animation">start animation</string>
+    <string name="trigger_temp">start temp</string>
+    
+    <!-- animation -->
+    <string name="anim_alpha">alpha动画效果</string>
+    <string name="anim_scale">scale动画效果</string>
+    <string name="anim_rotate">rotate动画效果</string>
+    <string name="anim_translate">translate动画效果</string>
+    <string name="anim_trigger">切换效果：%s</string>
+    <string name="anim_draw">Draw</string>
+    
 </resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/anim_alpha"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textView1"
+        android:layout_below="@id/textView1"
+        android:layout_marginTop="25dp"
+        android:text="@string/anim_scale"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textView2"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="25dp"
+        android:text="@string/anim_rotate"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textView3"
+        android:layout_below="@id/textView3"
+        android:layout_marginTop="27dp"
+        android:text="@string/anim_translate"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button_trigger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textView4"
+        android:layout_below="@id/textView4"
+        android:layout_marginTop="66dp"
+        android:text="@string/anim_trigger" />
+
+    <Button
+        android:id="@+id/button_activity_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/button_trigger"
+        android:layout_alignBottom="@id/button_trigger"
+        android:layout_marginLeft="14dp"
+        android:layout_toRightOf="@id/textView4"
+        android:text="@string/trigger_temp" />
+
+    <com.myle.resource.CircleView
+        android:id="@+id/circleView1"
+        android:layout_width="600dp"
+        android:layout_height="300dp"
+        android:layout_toRightOf="@id/button_activity_temp"
+        android:layout_alignTop="@id/textView2"
+        android:layout_marginLeft="30dp" />
+
+    <Button
+        android:id="@+id/button_draw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/button_activity_temp"
+        android:text="@string/anim_draw" />
+
+</RelativeLayout>

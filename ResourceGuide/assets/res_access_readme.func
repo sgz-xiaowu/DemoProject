@@ -5,7 +5,7 @@
 	##  Usage：  findViewById(resource-ID);
 	##  Syntax: Here's the syntax to reference a resource in code:
             =========================
-            [<package_name>.]R.<resource_type>.<resource_name>
+    ##        [<package_name>.]R.<resource_type>.<resource_name>
             =========================
 
 # Accessing Resources from XML:
@@ -13,18 +13,18 @@
 	##  Usage：  widget.xml {android:text="@string/text"};
 	##  Syntax： Here is the syntax to reference a resource in an XML resource:
             =========================
-            @[<package_name>:]<resource_type>/<resource_name>
+    ##        @[<package_name>:]<resource_type>/<resource_name>
             =========================
-            Note: 包名前面，须使用@符号。
+    ##        Note: 包名前面，须使用@符号。
             
 # Referencing style attributes:
 
 	##  引用a style attribute的name syntax，与normal resource format基本一致，但是不是符号@，而是符号？，而且resource type是optionnal的。
 	##  Syntax： Here is the syntax to reference a style attribute in an XML resource:
             =========================
-            ?[<package_name>:][<resource_type>/]<resource_name>
+    ##        ?[<package_name>:][<resource_type>/]<resource_name>
             =========================
-             Note: 包名前面，须使用?符号。
+    ##         Note: 包名前面，须使用?符号。
 
 # Accessing Platform Resources:
     

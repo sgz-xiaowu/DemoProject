@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这是一个抖动动画，一个图片，蹦蹦跳跳的进入界面  ，最后停在事先布局好的位置 
+             动画时间900ms，蹦了两次-->
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- X轴一直平滑,从-80%p的位置移动到原始位置,持续时间900秒,从动画启动后0毫秒后开始偏移 -->
+    <translate
+        android:duration="900"
+        android:fromXDelta="-80%p"
+        android:toXDelta="0" />
+    <!-- 抖动第一次.从起始Y坐标,往上偏移48个坐标,持续时间200毫秒,动画启动后100毫秒.开始偏移 -->
+    <translate
+        android:duration="200"
+        android:fromYDelta="48"
+        android:startOffset="95"
+        android:toYDelta="-48" />
+    <!-- 抖动第二次,从起始Y坐标上48个坐标,抖回起始坐标Y,持续时间200毫秒,动画启动后300毫秒,开始偏移 -->
+    <translate
+        android:duration="200"
+        android:fromYDelta="-48"
+        android:startOffset="295"
+        android:toYDelta="48" />
+    <!-- 抖动第三次,从起始Y坐标,向上偏移48个坐标,持续时间200毫秒,动画启动后500毫秒,开始偏移 -->
+    <translate
+        android:duration="200"
+        android:fromYDelta="48"
+        android:startOffset="495"
+        android:toYDelta="-48" />
+    <!-- 抖动第四次,从起始Y坐标上48个坐标,抖回起始坐标Y,持续时间200毫秒,动画启动后700毫秒,开始偏移 -->
+    <translate
+        android:duration="200"
+        android:fromYDelta="-48"
+        android:startOffset="695"
+        android:toYDelta="48" />
+
+</set>

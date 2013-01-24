@@ -4,11 +4,22 @@
     android:layout_height="match_parent" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_world"
         tools:context=".ResouceMainActivity" />
+
+    <Button
+        android:id="@+id/button_activity_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="31dp"
+        android:layout_toLeftOf="@id/textView1"
+        android:text="@string/trigger_animation" />
 
 </RelativeLayout>
