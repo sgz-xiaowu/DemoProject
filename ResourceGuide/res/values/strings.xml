@@ -12,6 +12,8 @@
     <!-- intent trigger -->
     <string name="trigger_animation">start animation</string>
     <string name="trigger_temp">start temp</string>
+    <string name="trigger_frame_play">play</string>
+    <string name="trigger_frame_puase">pause</string>
     
     <!-- animation -->
     <string name="anim_alpha">alpha动画效果</string>
@@ -22,4 +24,6 @@
     <string name="anim_draw">Draw</string>
     <string name="anim_interpolator">内插器：%s</string>
     
+    <!-- description -->
+    <string name="text_frame">Frame动画演示</string>
 </resources>

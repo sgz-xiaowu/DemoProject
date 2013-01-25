@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -64,12 +65,15 @@ public class AnimationResActivity extends Activity implements OnClickListener
     private Button m_btnTriggerActivity;
     private Button m_btnDraw;
     private Button m_btnInterpolator;
+    private Button m_btnFrame;
     
     private CircleView m_circleView;
+    private ImageView m_imageFrameView;
     
     private int m_nameAnimationIndex = 0;
     private int m_nameInterpotatorIndex = 0;
     private boolean isSaved = true;
+    private boolean isFramePlaying = false;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -85,7 +89,9 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnTriggerActivity = (Button) findViewById(R.id.button_activity_temp);
         m_btnDraw = (Button) findViewById(R.id.button_draw);
         m_btnInterpolator = (Button) findViewById(R.id.button_interpolator);
+        m_btnFrame = (Button) findViewById(R.id.button_frame);
         m_circleView = (CircleView) findViewById(R.id.circleView1);
+        m_imageFrameView = (ImageView) findViewById(R.id.image_frame);
         
         String triggerText = getString(R.string.anim_trigger, ""/*ANIMATION_NAMES[0]*/);
         m_btnTrigger.setText(triggerText);
@@ -95,8 +101,25 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnTriggerActivity.setOnClickListener(this);
         m_btnDraw.setOnClickListener(this);
         m_btnInterpolator.setOnClickListener(this);
+        m_btnFrame.setOnClickListener(this);
+        m_btnFrame.setText(R.string.trigger_frame_puase);
         
         m_circleView.setBackgroundColor(Color.BLACK);
+        m_imageFrameView.setBackgroundResource(R.drawable.hi);
+        
+        // Frame动画启动，不能在onCreate中调用，因为此时，animationDrawable还没有与ImageView完全绑定。
+    }
+    
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        // onResume也不能启动Frame动画。
+        /*AnimationDrawable animalAnimation = (AnimationDrawable) m_imageFrameView.getBackground();
+        if (null != animalAnimation)
+        {
+                animalAnimation.start();
+        }*/
     }
 
     // View widget animation.
@@ -163,6 +186,25 @@ public class AnimationResActivity extends Activity implements OnClickListener
                 m_circleView.setSaved(CircleView.drawType.UNSAVED);
             }
             m_circleView.invalidate();
+            break;
+            
+        case R.id.button_frame:
+            Button frame = (Button) v;
+            AnimationDrawable animalAnimation = (AnimationDrawable) m_imageFrameView.getBackground();
+            if (null != animalAnimation)
+            {
+                if (isFramePlaying)
+                {
+                    frame.setText(R.string.trigger_frame_puase);
+                    animalAnimation.stop();
+                }
+                else
+                {
+                    frame.setText(R.string.trigger_frame_play);
+                    animalAnimation.start();
+                }
+                isFramePlaying = !isFramePlaying;
+            }
             break;
 
         default:

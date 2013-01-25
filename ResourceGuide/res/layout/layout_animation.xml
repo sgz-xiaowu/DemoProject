@@ -88,4 +88,30 @@
         android:layout_below="@id/circleView1"
         android:text="@string/anim_interpolator" />
 
+    <ImageView
+        android:id="@+id/image_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/circleView1"
+        android:layout_below="@id/button_interpolator"
+        />
+
+    <Button
+        android:id="@+id/button_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/button_activity_temp"
+        android:layout_alignTop="@id/image_frame"
+        android:text="@string/trigger_frame_play" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_alignBottom="@id/button_interpolator"
+        android:layout_alignLeft="@id/button_frame"
+        android:text="@string/text_frame"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
