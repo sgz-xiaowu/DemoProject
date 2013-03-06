@@ -159,6 +159,16 @@
                 <category android:name="com.shendw.intent.category.xxx"/>
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.code.subdemo.TouchTraceActivity"
+            android:label=".TouchTrace">
+            <intent-filter >
+                <action android:name="com.shendw.intent.action.xxx"/>
+                
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.shendw.intent.category.xxx"/>
+            </intent-filter>
+        </activity>
         
     </application>
 
