@@ -7,9 +7,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.CornerPathEffect;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
+import android.graphics.PathEffect;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -150,6 +153,9 @@ public class TouchTraceActivity extends Activity
             
             // 绘制Touch轨迹
             drawTouchTrace(canvas);
+            
+            // 绘制十字线
+            drawCrossLine(canvas);
         }
         
         private void drawTouchTrace(Canvas canvas)
@@ -170,6 +176,36 @@ public class TouchTraceActivity extends Activity
             mTextPaint.setTextSize(30);
             mTextPaint.setColor(Color.GREEN);
             canvas.drawPath(mTracePath, mTextPaint);
+        }
+        
+        /*
+         * PS: pts[] 存放的是each线段的两个端点组成的数组。即，values{x0,y0,x1,y1,x2,y2,x3,y3}
+         */
+        private void drawCrossLine(Canvas canvas)
+        {
+            Paint crossPaint = new Paint();
+            crossPaint.setColor(Color.BLUE);
+            crossPaint.setAntiAlias(true);
+            crossPaint.setStyle(Style.STROKE);
+            crossPaint.setStrokeWidth(1);
+            
+            //这是一个四条线组成的矩形，
+            float[] rect_pts={50,50,400,50,  
+                    400,50,400,600/*,  
+                    400,600,50,600,  
+                    50,600,50,50*/}; 
+            // 绘制以点(mCurPosX, mCurPosY)为中心的十字线(实线)
+            float windowWidth = getWindow().getWindowManager().getDefaultDisplay().getWidth();
+            float windowHeight = getWindow().getWindowManager().getDefaultDisplay().getHeight();
+            float[] cross_pts = new float[]{mCurPosX, 0, mCurPosX, windowHeight,
+                                            0, mCurPosY, windowWidth, mCurPosY };
+            // 
+            float[] intervals = new float[]{20,10/*,30,30*/}; // intervals 最少2个值，然后依次交替，分别表示实线空格的间距。
+            float phase = 6;// don't see..
+            PathEffect effect = new DashPathEffect(intervals, phase);
+//            PathEffect effect = new CornerPathEffect(5);
+            crossPaint.setPathEffect(effect);
+            canvas.drawLines(cross_pts, crossPaint);
         }
         
         @Override
