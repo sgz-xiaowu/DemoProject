@@ -202,7 +202,7 @@ public class TouchTraceActivity extends Activity
             // 
             float[] intervals = new float[]{20,10/*,30,30*/}; // intervals 最少2个值，然后依次交替，分别表示实线空格的间距。
             float phase = 6;// don't see..
-            PathEffect effect = new DashPathEffect(intervals, phase);
+            PathEffect effect = new DashPathEffect(intervals, phase); // 虚线 dash line
 //            PathEffect effect = new CornerPathEffect(5);
             crossPaint.setPathEffect(effect);
             canvas.drawLines(cross_pts, crossPaint);

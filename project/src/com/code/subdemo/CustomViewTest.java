@@ -1,7 +1,7 @@
 package com.code.subdemo;
 
 import com.code.R;
-import com.custom.view.CircleView;
+import com.custom.widget.CircleView;
 
 import android.app.Activity;
 import android.graphics.drawable.GradientDrawable.Orientation;

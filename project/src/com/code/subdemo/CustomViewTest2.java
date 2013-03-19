@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.code.R;
-import com.custom.view.CircleView;
+import com.custom.widget.CircleView;
 
 /**
  * Case 1: RelativeLayout.addView() view01/view02/view03/view04时，若使用同一个LayoutParams，则将只显示最后Last View。

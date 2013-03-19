@@ -23,4 +23,22 @@
     <string name="runtime_changes">我的测试结果是：%1s</string>
     <string name="increase">加+1</string>
     <string name="decrease">减-1</string>
+    
+    <!-- graphic camera 3d act-->
+    <string name="camera_descri">Hello World, ActCamera3D!</string>
+    <!-- act_rotate -->
+    <string name="act_rotate">XYZ轴旋转（单位：角度, 范围0~360 degree ）</string>
+    <string name="rotate_X_axis">X轴：</string>
+    <string name="rotate_Y_axis">Y轴：</string>
+    <string name="rotate_Z_axis">Z轴：</string>
+    <!-- act_sknew -->
+    <string name="act_sknew">XY轴倾斜</string>
+    <string name="skew_X_axis">X轴：</string>
+    <string name="skew_Y_axis">Y轴：</string>
+    <string name="skew_Z_axis">Z轴：</string>
+    <!-- act_scale -->
+    <string name="act_scale">Z轴缩放</string>
+    <string name="scale_X_axis">X轴：</string>
+    <string name="scale_Y_axis">Y轴：</string>
+    <string name="scale_Z_axis">Z轴：</string>
 </resources>
