@@ -66,6 +66,7 @@ public class AnimationResActivity extends Activity implements OnClickListener
     private Button m_btnDraw;
     private Button m_btnInterpolator;
     private Button m_btnFrame;
+    private Button m_btnAnimTest;
     
     private CircleView m_circleView;
     private ImageView m_imageFrameView;
@@ -90,6 +91,9 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnDraw = (Button) findViewById(R.id.button_draw);
         m_btnInterpolator = (Button) findViewById(R.id.button_interpolator);
         m_btnFrame = (Button) findViewById(R.id.button_frame);
+        
+        m_btnAnimTest = (Button) findViewById(R.id.button_test);
+        
         m_circleView = (CircleView) findViewById(R.id.circleView1);
         m_imageFrameView = (ImageView) findViewById(R.id.image_frame);
         
@@ -103,6 +107,7 @@ public class AnimationResActivity extends Activity implements OnClickListener
         m_btnInterpolator.setOnClickListener(this);
         m_btnFrame.setOnClickListener(this);
         m_btnFrame.setText(R.string.trigger_frame_puase);
+        m_btnAnimTest.setOnClickListener(this);
         
         m_circleView.setBackgroundColor(Color.BLACK);
         m_imageFrameView.setBackgroundResource(R.drawable.hi);
@@ -205,6 +210,11 @@ public class AnimationResActivity extends Activity implements OnClickListener
                 }
                 isFramePlaying = !isFramePlaying;
             }
+            break;
+            
+        case R.id.button_test:
+            Intent intent2 = new Intent(AnimationResActivity.this, TestAnimActivity.class);
+            startActivity(intent2);
             break;
 
         default:

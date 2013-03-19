@@ -8,6 +8,7 @@
     <string name="title_activity_resouce_main">ResouceMainActivity</string>
     <string name="title_activity_animation_res">AnimationResActivity</string>
     <string name="title_activity_temp">TempActivity</string>
+    <string name="title_activity_test_anim">TestAnimActivity</string>
     
     <!-- intent trigger -->
     <string name="trigger_animation">start animation</string>
